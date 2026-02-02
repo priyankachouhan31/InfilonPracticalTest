@@ -1,0 +1,67 @@
+<div class="container mt-5 text-center">
+    <h2>Student Page</h2>
+    
+    <button class="btn btn-secondary" (click)="goBack()">Back to Master</button>
+  </div>
+
+  <h3>Add Student</h3>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" class="form-control"
+           placeholder="First Name"
+           [(ngModel)]="newStudent.firstName">
+  </div>
+
+  <div class="col">
+    <input type="text" class="form-control"
+           placeholder="Last Name"
+           [(ngModel)]="newStudent.lastName">
+  </div>
+
+  <div class="col">
+    <input type="text" class="form-control"
+           placeholder="Class Ids (e.g. 1,2)"
+           [(ngModel)]="newStudent.classIds">
+  </div>
+
+  <div class="col">
+    <button class="btn btn-primary w-100" (click)="addStudent()">
+      Add
+    </button>
+  </div>
+</div>
+
+
+  <div class="container mt-4">
+    <h2>Students</h2>
+    <!-- Search -->
+    <input [(ngModel)]="searchText" (input)="search()" placeholder="Search..." class="form-control mb-3">
+  
+    <!-- Table -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th (click)="sortBy('firstName')" style="cursor:pointer">Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of pagedStudents">
+          <td>{{s.firstName}}</td>
+          <td>
+            <!-- <button class="btn btn-primary btn-sm me-2" (click)="editStudent(s)">Edit</button> -->
+            <!-- <button class="btn btn-danger btn-sm" (click)="deleteStudent(s.id)">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-secondary" (click)="prevPage()">Previous</button>
+      <span>Page {{currentPage}} / {{totalPages}}</span>
+      <button class="btn btn-secondary" (click)="nextPage()">Next</button>
+    </div>
+  
+  </div>
+  

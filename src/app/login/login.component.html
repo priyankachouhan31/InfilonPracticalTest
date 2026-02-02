@@ -1,0 +1,20 @@
+<div class="d-flex vh-100">
+    <div class="w-50">
+      <form (ngSubmit)="login()" [formGroup]="loginForm" class="px-4">
+        <h1 class="py-4 fw-bold display-4 text-center">
+          Student Management
+        </h1>
+        <div class="mb-3">
+          <label for="name" class="fw-bold">Username</label>
+          <!-- Bind this input html to a .ts componenet using formControlName -->
+          <input type="text" class="form-control mt-1" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="fw-bold">Password</label>
+          <input type="text" class="form-control mt-1" formControlName="password">
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-dark w-100">Login</button>
+        </div>
+      </form>
+    </div>
